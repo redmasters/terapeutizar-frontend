@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psicologia & Bem-Estar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+            --card-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-right: 10px;
+        }
+        
+        .logo h1 {
+            color: var(--primary);
+            font-size: 1.8rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(44,62,80,0.9) 0%, rgba(52,152,219,0.85) 100%), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+        }
+        
+        .btn:hover {
+            background: #c0392b;
+            transform: translateY(-3px);
+        }
+        
+        /* Professionals Section */
+        .section-title {
+            text-align: center;
+            margin: 70px 0 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: var(--secondary);
+            border-radius: 2px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 20px auto 0;
+            font-size: 1.1rem;
+        }
+        
+        .filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 40px 0;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .professionals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 70px;
+        }
+        
+        .professional-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+        
+        .professional-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-header {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-header img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .professional-card:hover .card-header img {
+            transform: scale(1.1);
+        }
+        
+        .specialty-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-body h3 {
+            color: var(--primary);
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+        }
+        
+        .card-body .title {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .card-body p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-info i {
+            color: var(--secondary);
+            width: 20px;
+        }
+        
+        /* About Section */
+        .about {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2.3rem;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .about-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 70px 0 30px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
+        }
+        
+        .footer-column p {
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            padding-left: 5px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+        
+        .social-icons a:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.8rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                font-size: 1.8rem;
+                color: var(--primary);
+                cursor: pointer;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero {
+                padding: 70px 0;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <i class="fas fa-brain"></i>
+                    <h1>Psicologia & Bem-Estar</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#professionals">Profissionais</a></li>
+                    <li><a href="#about">Sobre Nós</a></li>
+                    <li><a href="#services">Serviços</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Cuidando da sua saúde mental</h2>
+                <p>Conectamos você aos melhores profissionais de psicologia para sua jornada de bem-estar emocional e desenvolvimento pessoal.</p>
+                <a href="#professionals" class="btn">Encontrar Profissional</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professionals Section -->
+    <section id="professionals">
+        <div class="container">
+            <div class="section-title">
+                <h2>Nossos Profissionais</h2>
+                <p>Conheça nossa equipe de psicólogos altamente qualificados, prontos para oferecer o melhor atendimento personalizado para suas necessidades.</p>
+            </div>
+
+            <div class="filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="clinical">Clínica</button>
+                <button class="filter-btn" data-filter="child">Infantil</button>
+                <button class="filter-btn" data-filter="organizational">Organizacional</button>
+                <button class="filter-btn" data-filter="couple">Casais</button>
+            </div>
+
+            <div class="professionals-grid">
+                <!-- Card 1 -->
+                <div class="professional-card" data-category="clinical">
+                    <div class="card-header">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80" alt="Dra. Ana Silva">
+                        <span class="specialty-badge">Clínica</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Dra. Ana Silva</h3>
+                        <span class="title">Psicóloga Clínica</span>
+                        <p>Especialista em terapia cognitivo-comportamental com 10 anos de experiência. Atendimento a adultos e adolescentes.</p>
+                        <div class="contact-info">
+                            <div>
+                                <i class="fas fa-envelope"></i>
+                                <span>ana.silva@exemplo.com</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 99999-8888</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="professional-card" data-category="child">
+                    <div class="card-header">
+                        <img src="https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80" alt="Dr. Carlos Mendes">
+                        <span class="specialty-badge">Infantil</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Dr. Carlos Mendes</h3>
+                        <span class="title">Psicólogo Infantil</span>
+                        <p>Especializado em psicologia do desenvolvimento e terapia infantil. Trabalha com abordagem lúdica e criativa.</p>
+                        <div class="contact-info">
+                            <div>
+                                <i class="fas fa-envelope"></i>
+                                <span>carlos.mendes@exemplo.com</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 97777-6666</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="professional-card" data-category="organizational">
+                    <div class="card-header">
+                        <img src="https://images.unsplash.com/photo-1556157382-97eda2f9e946?q=80" alt="Dra. Fernanda Oliveira">
+                        <span class="specialty-badge">Organizacional</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Dra. Fernanda Oliveira</h3>
+                        <span class="title">Psicóloga Organizacional</span>
+                        <p>Especialista em psicologia do trabalho e organizacional. Consultoria para empresas e desenvolvimento de lideranças.</p>
+                        <div class="contact-info">
+                            <div>
+                                <i class="fas fa-envelope"></i>
+                                <span>fernanda.oliveira@exemplo.com</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 95555-4444</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="professional-card" data-category="clinical">
+                    <div class="card-header">
+                        <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80" alt="Dr. Roberto Almeida">
+                        <span class="specialty-badge">Clínica</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Dr. Roberto Almeida</h3>
+                        <span class="title">Psicólogo Clínico</span>
+                        <p>Atua com abordagem psicanalítica. Experiência em tratamento de ansiedade, depressão e questões existenciais.</p>
+                        <div class="contact-info">
+                            <div>
+                                <i class="fas fa-envelope"></i>
+                                <span>roberto.almeida@exemplo.com</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 93333-2222</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="professional-card" data-category="couple">
+                    <div class="card-header">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80" alt="Dra. Juliana Costa">
+                        <span class="specialty-badge">Casais</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Dra. Juliana Costa</h3>
+                        <span class="title">Terapeuta de Casais</span>
+                        <p>Especialista em terapia de casais e família. Mediação de conflitos e fortalecimento de relacionamentos.</p>
+                        <div class="contact-info">
+                            <div>
+                                <i class="fas fa-envelope"></i>
+                                <span>juliana.costa@exemplo.com</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 91111-0000</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="professional-card" data-category="child">
+                    <div class="card-header">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80" alt="Dr. Pedro Santos">
+                        <span class="specialty-badge">Infantil</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>Dr. Pedro Santos</h3>
+                        <span class="title">Psicólogo Infantil</span>
+                        <p>Especialista em dificuldades de aprendizagem e desenvolvimento infantil. Atendimento a crianças e orientação parental.</p>
+                        <div class="contact-info">
+                            <div>
+                                <i class="fas fa-envelope"></i>
+                                <span>pedro.santos@exemplo.com</span>
+                            </div>
+                            <div>
+                                <i class="fas fa-phone"></i>
+                                <span>(11) 98888-7777</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Sobre a Psicologia & Bem-Estar</h2>
+                    <p>Fundada em 2010, a Psicologia & Bem-Estar tem como missão conectar pessoas a profissionais de psicologia qualificados, promovendo saúde mental e bem-estar emocional.</p>
+                    <p>Nossa plataforma reúne psicólogos de diversas especialidades, oferecendo um ambiente seguro e acolhedor para o desenvolvimento pessoal e tratamento psicológico.</p>
+                    <p>Acreditamos que o cuidado com a saúde mental é fundamental para uma vida plena e equilibrada, e trabalhamos para tornar o acesso à psicoterapia mais fácil e acessível.</p>
+                    <a href="#" class="btn">Saiba Mais</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80" alt="Espaço de Atendimento">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Psicologia & Bem-Estar</h3>
+                    <p>Conectando você aos melhores profissionais de psicologia para uma vida mais equilibrada e saudável.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#professionals">Profissionais</a></li>
+                        <li><a href="#about">Sobre Nós</a></li>
+                        <li><a href="#services">Serviços</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Especialidades</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Psicologia Clínica</a></li>
+                        <li><a href="#">Psicologia Infantil</a></li>
+                        <li><a href="#">Psicologia Organizacional</a></li>
+                        <li><a href="#">Terapia de Casais</a></li>
+                        <li><a href="#">Neuropsicologia</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Paulista, 1000 - São Paulo, SP</p>
+                    <p><i class="fas fa-phone"></i> (11) 4002-8922</p>
+                    <p><i class="fas fa-envelope"></i> contato@psicologiaebemestar.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Psicologia & Bem-Estar. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filtro de profissionais
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const professionalCards = document.querySelectorAll('.professional-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remover classe ativa de todos os botões
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Adicionar classe ativa ao botão clicado
+                    button.classList.add('active');
+                    
+                    const filter = button.getAttribute('data-filter');
+                    
+                    professionalCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Scroll suave para âncoras
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const target = document.querySelector(this.getAttribute('href'));
+                    
+                    if (target) {
+                        window.scrollTo({
+                            top: target.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
