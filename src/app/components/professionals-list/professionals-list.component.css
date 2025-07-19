@@ -1,0 +1,17 @@
+.loading {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: var(--secondary);
+}
+
+.no-results {
+  text-align: center;
+  padding: 40px;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.fa-spin {
+  margin-right: 10px;
+}

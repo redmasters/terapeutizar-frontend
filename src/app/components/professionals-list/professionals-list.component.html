@@ -1,0 +1,40 @@
+<section id="professionals">
+  <div class="container">
+    <div class="section-title">
+      <h2>Nossos Profissionais</h2>
+      <p>Conheça nossa equipe de psicólogos altamente qualificados.</p>
+    </div>
+
+    <div class="filters">
+      <button
+        *ngFor="let filter of ['all', 'clinical', 'child', 'organizational', 'couple']"
+        class="filter-btn"
+        [class.active]="activeFilter === filter"
+        (click)="setFilter(filter)">
+        {{ getFilterLabel(filter) }} <!-- Usar a função aqui -->
+      </button>
+    </div>
+
+    <div *ngIf="isLoading" class="loading">
+      <i class="fas fa-spinner fa-spin"></i> Carregando profissionais...
+    </div>
+
+    <div *ngIf="!isLoading && filteredProfessionals.length === 0" class="no-results">
+      Nenhum profissional encontrado.
+    </div>
+
+    <div *ngIf="!isLoading" class="professionals-grid">
+      <app-professional-card
+        *ngFor="let professional of filteredProfessionals"
+        [professional]="professional">
+      </app-professional-card>
+    </div>
+
+    <div class="professionals-grid">
+      <app-professional-card
+        *ngFor="let professional of filteredProfessionals"
+        [professional]="professional">
+      </app-professional-card>
+    </div>
+  </div>
+</section>

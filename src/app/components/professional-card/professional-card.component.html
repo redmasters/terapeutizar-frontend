@@ -1,0 +1,21 @@
+<div class="professional-card">
+  <div class="card-header">
+    <img [src]="professional.imageUrl" [alt]="professional.name">
+    <span class="specialty-badge">{{ getSpecialtyLabel(professional.specialty) }}</span>
+  </div>
+  <div class="card-body">
+    <h3>{{ professional.name }}</h3>
+    <span class="title">{{ professional.title }}</span>
+    <p>{{ professional.description }}</p>
+    <div class="contact-info">
+      <div>
+        <i class="fas fa-envelope"></i>
+        <span>{{ professional.email }}</span>
+      </div>
+      <div>
+        <i class="fas fa-phone"></i>
+        <span>{{ professional.phone }}</span>
+      </div>
+    </div>
+  </div>
+</div>

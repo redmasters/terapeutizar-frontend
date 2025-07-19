@@ -1,0 +1,20 @@
+<header>
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">
+        <i class="fas fa-brain"></i>
+        <h1>Espaco Terapeutizar</h1>
+      </div>
+      <ul class="nav-links" [class.active]="isMenuOpen">
+        <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
+        <li><a routerLink="/professionals" (click)="closeMenu()">Profissionais</a></li>
+        <li><a href="#about" (click)="closeMenu()">Sobre Nós</a></li>
+        <li><a href="#services" (click)="closeMenu()">Serviços</a></li>
+        <li><a href="#contact" (click)="closeMenu()">Contato</a></li>
+      </ul>
+      <div class="mobile-menu-btn" (click)="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Dra. Ana Silva",
+    "title": "Psicóloga Clínica",
+    "specialty": "clinical",
+    "description": "Especialista em terapia cognitivo-comportamental com 10 anos de experiência.",
+    "email": "ana.silva@exemplo.com",
+    "phone": "(11) 99999-8888",
+    "imageUrl": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80"
+  },
+  {
+    "id": 2,
+    "name": "Dr. Carlos Mendes",
+    "title": "Psicólogo Infantil",
+    "specialty": "child",
+    "description": "Especializado em psicologia do desenvolvimento e terapia infantil.",
+    "email": "carlos.mendes@exemplo.com",
+    "phone": "(11) 97777-6666",
+    "imageUrl": "https://images.unsplash.com/photo-1594824476967-48c8b964273f?q=80"
+  },
+  {
+    "id": 3,
+    "name": "Dra. Fernanda Oliveira",
+    "title": "Psicóloga Organizacional",
+    "specialty": "organizational",
+    "description": "Especialista em psicologia do trabalho e organizacional.",
+    "email": "fernanda.oliveira@exemplo.com",
+    "phone": "(11) 95555-4444",
+    "imageUrl": "https://images.unsplash.com/photo-1556157382-97eda2f9e946?q=80"
+  },
+  {
+    "id": 4,
+    "name": "Dr. Roberto Almeida",
+    "title": "Psicólogo Clínico",
+    "specialty": "clinical",
+    "description": "Atua com abordagem psicanalítica. Experiência em tratamento de ansiedade, depressão e questões existenciais.",
+    "email": "roberto.almeida@exemplo.com",
+    "phone": "(11) 93333-2222",
+    "imageUrl": "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?q=80"
+  },
+  {
+    "id": 5,
+    "name": "Dra. Juliana Costa",
+    "title": "Terapeuta de Casais",
+    "specialty": "couple",
+    "description": "Especialista em terapia de casais e família. Mediação de conflitos e fortalecimento de relacionamentos.",
+    "email": "juliana.costa@exemplo.com",
+    "phone": "(11) 91111-0000",
+    "imageUrl": "https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80"
+  },
+  {
+    "id": 6,
+    "name": "Dr. Pedro Santos",
+    "title": "Psicólogo Infantil",
+    "specialty": "child",
+    "description": "Especialista em dificuldades de aprendizagem e desenvolvimento infantil. Atendimento a crianças e orientação parental.",
+    "email": "pedro.santos@exemplo.com",
+    "phone": "(11) 98888-7777",
+    "imageUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80"
+  }
+]

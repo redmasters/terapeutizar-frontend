@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "name": "Dra. Ana Silva",
+    "title": "Psicóloga Clínica",
+    "specialty": "clinical",
+    "description": "Especialista em terapia cognitivo-comportamental com 10 anos de experiência.",
+    "email": "ana.silva@exemplo.com",
+    "phone": "(11) 99999-8888",
+    "imageUrl": "assets/images/professional1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Dr. Carlos Mendes",
+    "title": "Psicólogo Infantil",
+    "specialty": "child",
+    "description": "Especializado em psicologia do desenvolvimento e terapia infantil.",
+    "email": "carlos.mendes@exemplo.com",
+    "phone": "(11) 97777-6666",
+    "imageUrl": "assets/images/professional2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Dra. Fernanda Oliveira",
+    "title": "Psicóloga Organizacional",
+    "specialty": "organizational",
+    "description": "Especialista em psicologia do trabalho e organizacional.",
+    "email": "fernanda.oliveira@exemplo.com",
+    "phone": "(11) 95555-4444",
+    "imageUrl": "assets/images/professional3.jpg"
+  }
+]
