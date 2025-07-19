@@ -1,2 +1,2 @@
 # terapeutizar-frontend
-Frontend da Clinica Terapeutizar
+![Terapeutizar Frontend](/doc/assets/img.png)
